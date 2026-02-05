@@ -1,5 +1,12 @@
 # 🪙 Crypto Base
 
+![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white)
+![Pydantic](https://img.shields.io/badge/Pydantic-2.10-E92063?logo=pydantic&logoColor=white)
+![React](https://img.shields.io/badge/React-19.1.0-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-6.3.5-646CFF?logo=vite)
+![Sass](https://img.shields.io/badge/Sass-1.89.1-CC6699?logo=sass)
+
 A small full-stack (React + FastAPI) web application for exploring cryptocurrency data, powered by the [CoinMarketCap API](https://coinmarketcap.com/api/).
 
 ---
