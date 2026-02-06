@@ -9,6 +9,10 @@
 
 A small full-stack (React + FastAPI) web application for exploring cryptocurrency data, powered by the [CoinMarketCap API](https://coinmarketcap.com/api/).
 
+### Main page
+
+![Main page](readme.img/main_page.png)
+
 ---
 
 ## ✨ Features
@@ -27,13 +31,14 @@ A small full-stack (React + FastAPI) web application for exploring cryptocurrenc
 | **Backend** | FastAPI, Pydantic Settings |
 | **HTTP**   | aiohttp              |
 | **Data**   | CoinMarketCap API    |
-| **Frontend** | React (planned)     |
+| **Frontend** | React, Vite, Ant Design |
 
 ---
 
 ## 📋 Prerequisites
 
 - **Python 3.10+**
+- **Node.js** (for the React frontend)
 - **CoinMarketCap API key** — [Get one here](https://coinmarketcap.com/api/)
 
 ---
@@ -63,12 +68,21 @@ pip install -r requirements.txt
 
 ### 4️⃣ Configure environment
 
-Create a `.env` file in the project root:
+Copy `.env.example` to `.env` and add your [CoinMarketCap API key](https://coinmarketcap.com/api/):
+
+```bash
+cp .env.example .env
+# Edit .env and set CMC_API_KEY=your_key
+```
+
+Or create `.env` manually:
 
 ```env
 CMC_API_KEY=your_coinmarketcap_api_key_here
 CMC_BASE_URL=https://pro-api.coinmarketcap.com/v1
 ```
+
+The server will start without a key, but CMC endpoints will fail until `CMC_API_KEY` is set.
 
 ### 5️⃣ Run the API
 
@@ -77,6 +91,16 @@ uvicorn backend.main:app --reload
 ```
 
 The API will be available at **http://127.0.0.1:8000**.
+
+### 6️⃣ Run the frontend (optional)
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The app will be at **http://localhost:5173** (or the port Vite shows). Ensure the backend is running so the frontend can fetch cryptocurrency data.
 
 ---
 
@@ -97,22 +121,6 @@ curl http://127.0.0.1:8000/cryptocurrencies
 curl http://127.0.0.1:8000/cryptocurrencies/1
 ```
 
----
-
-## 📁 Project Structure
-
-```
-crypto_base/
-├── backend/
-│   ├── main.py        # FastAPI app & router wiring
-│   ├── router.py      # /cryptocurrencies routes
-│   ├── http_client.py # CoinMarketCap API client
-│   ├── config.py      # Settings (env)
-│   └── init.py        # CMC client instance
-├── .env               # Your API key (not committed)
-├── requirements.txt
-└── README.md
-```
 
 ---
 
